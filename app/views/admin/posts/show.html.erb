@@ -16,7 +16,7 @@
           <div class="post_detail">
             <p style="margin-top:10px;">
               <%= @post.created_at.strftime("%Y-%m-%d(%a)") %>
-              <%= image_tag 'mappin.png',style:"width:20px; margin-left:20px;" %><%= @post.city.name %>
+              <%= image_tag asset_path('mappin.png'),style:"width:20px; margin-left:20px;" %><%= @post.city.name %>
             </p>
 
           </div>

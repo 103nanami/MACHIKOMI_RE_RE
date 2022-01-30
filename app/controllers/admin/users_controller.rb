@@ -13,8 +13,8 @@ class Admin::UsersController < ApplicationController
 
   def post
      @user = params[:id]
-     @user_posts = Post.where(@user).includes(:user).page(params[:page]).per(12)
-     @page = Post.page(params[:page]).per(9)
+     @user_posts = Post.where(@user).includes(:user).order("created_at DESC")
+     @pages = Post.page(params[:page]).per(9)
   end
 
   private

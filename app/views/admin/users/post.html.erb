@@ -29,7 +29,7 @@
           </div>
           <div class="card-body">
             <p><%= user_post.post_name %></p>
-            <p><%= image_tag 'mappin.png',style:"width:20px;" %><%= user_post.city.name %></p>
+            <p><%= image_tag asset_path('mappin.png'),style:"width:20px;" %><%= user_post.city.name %></p>
           </div>
         </div>
         <% end %>
@@ -37,7 +37,7 @@
 
       </div>
 
-      <div style="margin-top:20px;"><%= paginate @page %></div>
+      <div style="margin-top:20px;"><%= paginate @pages %></div>
 
     </div>
 
