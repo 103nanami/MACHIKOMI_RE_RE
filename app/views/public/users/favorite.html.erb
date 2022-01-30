@@ -1,0 +1,86 @@
+<container>
+  <div class="row">
+
+    <div class="col-lg-2">
+    </div>
+
+    <div class="col-lg-8">
+
+      <div class="tabs">
+
+        <input id="all" type="radio" name="tab_item" checked>
+        <label class="tab_item" for="all">お気に入りの投稿</label>
+
+        <input id="programming" type="radio" name="tab_item">
+        <label class="tab_item" for="programming">お気に入りのまち</label>
+
+        <div class="tab_content" id="all_content">
+          <div class="tab_content_description">
+
+            <% if @post_favorites.present? %>
+
+              <div class="card-columns">
+                <% @post_favorites.each do |post_favorite| %>
+                <div class="card">
+                  <div class="mypost_img">
+                    <%= link_to post_path(post_favorite) do %>
+
+                      <%= attachment_image_tag post_favorite, :image ,style:"width:300px; height:200px;"%>
+                    <% end %>
+                  </div>
+                  <div class="card-body">
+                    <p><%= post_favorite.post_name %></p>
+                  </div>
+                </div>
+                <% end %>
+              </div>
+
+            <% else %>
+
+             <p>お気に入りした投稿はありません</p>
+
+            <% end %>
+
+          </div>
+        </div>
+
+        <div class="tab_content" id="programming_content">
+          <div class="tab_content_description">
+
+            <% if @column_favorites.present? %>
+
+              <div class="card-columns">
+                <% @column_favorites.each do |column| %>
+                <div class="card">
+                  <div class="mypost_img">
+                    <%= link_to column_path(column) do %>
+                      <%= attachment_image_tag column, :image ,style:"width:300px; height:200px;"%>
+                    <% end %>
+                  </div>
+                  <div class="card-body">
+                    <p><%= column.title %></p>
+                  </div>
+                </div>
+                <% end %>
+              </div>
+
+            <% else %>
+
+             <p>お気に入りしたまちはありません</p>
+
+            <% end %>
+
+          </div>
+        </div>
+
+      </div>
+
+      <div style="margin:20px;"><%= paginate @posts %></div>
+
+  </div>
+
+    <div class="col-lg-2">
+    </div>
+
+  </div>
+</container>

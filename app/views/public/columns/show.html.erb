@@ -1,0 +1,34 @@
+<container>
+  <div class="row">
+    <div class="col-lg-2">
+    </div>
+
+    <div class="col-lg-8">
+      <div class="column_title_box">
+        <h4 class="column_title">
+          <p style="font-weight:bold; padding-right:20px;">[<%= @column.city.name %>]</p>
+          <%= @column.title %>
+        </h4>
+      </div>
+
+      <div id="favorite">
+        <%= render 'favorite', column: @column %>
+      </div>
+
+      <div class="column_main_box">
+        <%= attachment_image_tag @column, :image, style:"width:600px; height:auto;" %>
+
+        <div class="column_text",style="padding-bottom:80px;">
+          <%= safe_join(@column.text.split("\n"),tag(:br)) %>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="col-lg-1">
+    </div>
+
+  </div>
+</container>
+
+

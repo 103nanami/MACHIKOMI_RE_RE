@@ -1,0 +1,114 @@
+<container>
+
+  <%= form_with model: @post, url:posts_path, method: :POST, local:true do |f| %>
+    <div class="row">
+      <div class="col-lg 3">
+      </div>
+
+      <div class="col-lg-6 mx-auto">
+
+        <% if @post.errors.any? %>
+        <div class="error_mess_all">
+          <div class="error_mess_title">
+            <h5><%= @post.errors.count %>件のエラーが発生しました</h5>
+          </div>
+          <div class="error_mess">
+            <% @post.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </div>
+        </div>
+        <% end %>
+
+        <table>
+          <tr>
+            <td class="table_text">画像を選択　<%= f.attachment_field :image %></td>
+          </tr>
+
+          <tr>
+            <td class="table_text"><%= f.text_field :post_name, placeholder:"タイトル", style:"width:300px; height:25px;" %></td>
+          </tr>
+
+          <tr>
+            <td class="table_text"><%= f.text_area :post_text, placeholder:"本文", style:"width:400px; height:200px;" %></td>
+          </tr>
+
+          <tr>
+            <td class="table_text">
+              <%= f.select :city_id, @cities.map{ |city| [city.name, city.id] },:prompt => "まちを選択" %>
+            </td>
+          </tr>
+
+        </table>
+      </div>
+
+      <div class="col-lg 3">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg 3">
+      </div>
+
+      <div class="col-lg-6 mx-auto">
+
+        <div id="map"></div>
+        <p class="map_caption"><%= image_tag asset_path('mappin.png'),style:"width:20px; height:auto;" %>シェアする場所にピンをおく</p>
+
+        <script>
+          var map;
+          function initMap() {
+            var target = document.getElementById('map');
+            var empire = {lat: 35.705920321831975, lng: 139.61800825002};
+
+            map = new google.maps.Map(target, {
+              center: empire,
+              zoom: 12
+            });
+
+          var marker = new google.maps.Marker({
+            position: empire,
+            draggable: true,
+            map: map,
+           });
+
+          google.maps.event.addListener(marker, 'dragend', function(e) {
+            //イベントの引数eの、プロパティ.latLngがmarkerの緯度経度。
+            var pos = marker.getPosition();
+            var lat = pos.lat();
+            var lng = pos.lng();
+
+            $("#post_lat").val(lat);
+            $("#post_lng").val(lng);
+
+           });
+          }
+          google.maps.event.addDomListener(window, 'load', initMap);
+
+        </script>
+
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB5wzr3646rP2VFEUQPF-N-SoeyYBPhK-U&callback=initMap&v=weekly" async></script>
+
+      </div>
+
+      <div class="col-lg 3">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg 3">
+      </div>
+
+      <div class="col-lg-6 mx-auto">
+        <div class="button">
+          <%= f.hidden_field :lat %>
+          <%= f.hidden_field :lng %>
+          <%=f.submit "投稿", class:"btn btn-info" ,style:"width:120px" %>
+        </div>
+      </div>
+
+      <div class="col-lg 3">
+      </div>
+    </div>
+  <% end %>
+</container>

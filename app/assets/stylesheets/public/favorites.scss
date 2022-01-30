@@ -1,0 +1,61 @@
+// Place all the styles related to the Favorites controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+/*タブのスタイル*/
+
+.tabs{
+  margin: 50px auto 80px auto;
+}
+
+.card-columns{
+  width: 950px;
+  margin: 0 auto;
+}
+
+.tab_item {
+  width: calc(100%/2);
+  height: 50px;
+  background-color: white;
+  border: solid 0.5px #c3d7db;
+  line-height: 50px;
+  font-size: 16px;
+  text-align: center;
+  color: #565656;
+  display: block;
+  float: left;
+  text-align: center;
+  font-weight: bold;
+  transition: all 0.2s ease;
+}
+
+/*ラジオボタンを全て消す*/
+input[name="tab_item"] {
+  display: none;
+}
+
+.tabs .tab-label:hover {
+  opacity: 0.7;
+}
+
+
+/*タブ切り替えの中身のスタイル*/
+.tab_content {
+  display: none;
+  padding: 40px 40px 0;
+  clear: both;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+
+/*選択されているタブのコンテンツのみを表示*/
+#all:checked ~ #all_content,
+#programming:checked ~ #programming_content {
+  display: block;
+}
+
+/*選択されているタブのスタイルを変える*/
+.tabs input:checked + .tab_item {
+  background-color: #c3d7db;
+  color: #fff;
+}

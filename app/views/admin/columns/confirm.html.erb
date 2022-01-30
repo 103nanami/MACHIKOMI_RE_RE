@@ -1,0 +1,14 @@
+<container>
+  <div class="row">
+    <div class="col-lg-2">
+      <p>
+        <%= @column.title %>を削除します。</br>
+        よろしいですか？
+      </p>
+
+      <div class="destroy_button">
+        <%=link_to "削除", admin_column_path(@column), method: :delete, class:"btn btn-danger" ,style:"width:120px" %>
+      </div>
+    </div>
+  </div>
+</container>
