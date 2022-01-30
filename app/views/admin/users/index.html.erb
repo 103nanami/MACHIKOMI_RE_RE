@@ -50,7 +50,7 @@
               <%= user.last_name %> <%= user.first_name %></td>
             <td style="text-align:center;"><%= user.last_name_kana %> <%= user.first_name_kana %></td>
             <td style="text-align:center;"><%= user.created_at.strftime('%Y/%m/%d') %></td>
-            <td style="text-align:center;"><%= link_to "投稿一覧", admin_users_posts_path, class:"btn btn-outline-secondary" %></td>
+            <td style="text-align:center;"><%= link_to "投稿一覧", admin_users_posts_path(user_id: user.id), class:"btn btn-outline-secondary" %></td>
             <td style="text-align:center;">
   	          <% if user.is_active_was %>
   	            <p style="color:lightgreen; font-weight:bold;">有効</p>

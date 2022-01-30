@@ -12,8 +12,8 @@ class Admin::UsersController < ApplicationController
   end
 
   def post
-     @user = params[:id]
-     @user_posts = Post.where(@user).includes(:user).order("created_at DESC")
+     @user = User.find(params[:user_id])
+     @user_posts = @user.posts.order("created_at DESC")
      @pages = Post.page(params[:page]).per(9)
   end
 
