@@ -9,6 +9,20 @@
 admin = {email: '123@1234',password: '123456'}
 Admin.create_with(admin).find_or_create_by!(email: admin[:email])
 
+ columns = [
+      {id: 1, title: '中野', text: 'ここにテキストが入ります'},
+      {id: 2, title: '高円寺', text: 'ここにテキストが入ります'},
+      {id: 3, title: '阿佐ヶ谷', text: 'ここにテキストが入ります'},
+      {id: 4, title: '荻窪', text: 'ここにテキストが入ります'},
+      {id: 5, title: '西荻窪', text: 'ここにテキストが入ります'},
+      {id: 6, title: '吉祥寺', text: 'ここにテキストが入ります'},
+      {id: 7, title: '三鷹', text: 'ここにテキストが入ります'}
+   ]
+
+   columns.each do |column|
+      Column.create_with(column).find_or_create_by!(title: column[:title], text: column[:text])
+   end
+
  citys = [
       {id: 1, name: '中野', column_id: 1},
       {id: 2, name: '高円寺', column_id: 2},
