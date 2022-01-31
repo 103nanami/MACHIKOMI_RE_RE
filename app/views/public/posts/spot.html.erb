@@ -6,8 +6,8 @@
     <div class="col-lg-3", style="margin-top:50px;">
       <div class="spot_posts" >
 
-        <% @posts.each do |post| %>
-        <div class="card">
+        <% @posts.each_with_index do |post, index| %>
+        <div class="card", id="card_id_<%= index %>", style="display:none;">
           <%= link_to post_path(post) do %>
             <%= attachment_image_tag post, :image, class:"card-img-top" %>
           <% end %>
@@ -49,17 +49,23 @@
       zoom: 13
     });
 
-    $(".spot_posts").hide();
+
+
+    function markerEvent(i) {
+      google.maps.event.addListener(marker[i], 'click', function(e) {
+        var card_id = "#card_id_" + i
+        $('.card').hide();
+        $(card_id).show();
+      });
+    }
+
     for(var i = 0; i < spaces.length; ++i) {
       spot = new google.maps.LatLng({lat: spaces[i][0], lng: spaces[i][1]});
       marker[i] = new google.maps.Marker({
         position: spot,
         map: map,
       });
-
-      google.maps.event.addListener(marker[i], 'click', function(e) {
-        $(".spot_posts").show();
-      });
+       markerEvent(i)
       }
     }
     google.maps.event.addDomListener(window, 'load', initMap);
