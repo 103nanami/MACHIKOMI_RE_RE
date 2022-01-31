@@ -25,13 +25,13 @@ citys = [
 
 
  columns = [
-      {id: 1, title: '中野', text: 'ここにテキストが入ります', city_id: 1},
-      {id: 2, title: '高円寺', text: 'ここにテキストが入ります', city_id: 2},
-      {id: 3, title: '阿佐ヶ谷', text: 'ここにテキストが入ります', city_id: 3},
-      {id: 4, title: '荻窪', text: 'ここにテキストが入ります', city_id: 4},
-      {id: 5, title: '西荻窪', text: 'ここにテキストが入ります', city_id: 5},
-      {id: 6, title: '吉祥寺', text: 'ここにテキストが入ります', city_id: 6},
-      {id: 7, title: '三鷹', text: 'ここにテキストが入ります', city_id: 7}
+      {id: 1, title: '中野', text: 'ここにテキストが入ります', city_id: 1, image: open("app/assets/images/nakano_city.jpeg")},
+      {id: 2, title: '高円寺', text: 'ここにテキストが入ります', city_id: 2, image: open("app/assets/images/nakano_city.jpeg")},
+      {id: 3, title: '阿佐ヶ谷', text: 'ここにテキストが入ります', city_id: 3, image: open("app/assets/images/nakano_city.jpeg")},
+      {id: 4, title: '荻窪', text: 'ここにテキストが入ります', city_id: 4, image: open("app/assets/images/nakano_city.jpeg")},
+      {id: 5, title: '西荻窪', text: 'ここにテキストが入ります', city_id: 5, image: open("app/assets/images/nakano_city.jpeg")},
+      {id: 6, title: '吉祥寺', text: 'ここにテキストが入ります', city_id: 6, image: open("app/assets/images/nakano_city.jpeg")},
+      {id: 7, title: '三鷹', text: 'ここにテキストが入ります', city_id: 7, image: open("app/assets/images/nakano_city.jpeg")}
    ]
 
    columns.each do |column|
