@@ -9,23 +9,6 @@
 admin = {email: '123@1234',password: '123456'}
 Admin.create_with(admin).find_or_create_by!(email: admin[:email])
 
-
-City.create!(
-   [
-      {id: 1, name: '中野'},
-      {id: 2, name: '高円寺'},
-      {id: 3, name: '阿佐ヶ谷'},
-      {id: 4, name: '荻窪'},
-      {id: 5, name: '西荻窪'},
-      {id: 6, name: '吉祥寺'},
-      {id: 7, name: '三鷹'}
-   ]
-)
-
-#City.create!(id: 1, name: '中野')
-#City.create!(id: 1, name: '中野')
-#City.create!(id: 1, name: '中野')
-
  citys = [
       {id: 1, name: '中野', column_id: 1},
       {id: 2, name: '高円寺', column_id: 2},
