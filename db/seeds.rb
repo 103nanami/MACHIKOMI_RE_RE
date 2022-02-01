@@ -37,3 +37,6 @@ citys = [
    columns.each do |column|
       Column.create_with(column).find_or_create_by!(title: column[:title], text: column[:text], city_id: column[:city_id])
    end
+   
+   
+     
