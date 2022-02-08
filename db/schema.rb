@@ -28,7 +28,6 @@ ActiveRecord::Schema.define(version: 2022_01_29_043812) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name"
-    t.integer "column_id"
   end
 
   create_table "column_favorites", force: :cascade do |t|
