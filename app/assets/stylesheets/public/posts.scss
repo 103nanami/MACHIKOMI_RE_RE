@@ -116,6 +116,10 @@ table{
     display: flex;
   }
 
+  .comment_all table{
+    margin-right: auto;
+  }
+
   .post_detail{
     display: flex;
   }
@@ -141,4 +145,9 @@ table{
   #posts_all{
     margin: 0 auto;
     width: 950px;
+  }
+
+  .comment_error{
+    color: red;
+    font-weight: bold;
   }

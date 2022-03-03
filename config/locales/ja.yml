@@ -1,0 +1,14 @@
+ja:
+  activerecord:
+
+    attributes:
+      comment:
+        comment: "コメント"
+
+      post:
+        post_name: "タイトル"
+        post_text: "本文"
+        image: "画像"
+        lat: "緯度"
+        lng: "経度"
+        city_id: "まち"

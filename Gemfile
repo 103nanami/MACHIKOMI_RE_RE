@@ -87,3 +87,7 @@ gem 'dotenv-rails'
 group :production do
   gem 'mysql2'
 end
+
+gem 'rails-i18n'
+
+gem 'devise-i18n'

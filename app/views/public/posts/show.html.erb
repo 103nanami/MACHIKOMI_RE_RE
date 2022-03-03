@@ -39,6 +39,15 @@
     <dv class="col-lg-8">
 
       <div class="posts_all">
+
+        <div class="comment_error">
+          <% if @comment.errors.any? %>
+            <% @comment.errors.full_messages.each do |message| %>
+              <%= message %>
+            <% end %>
+          <% end %>
+        </div>
+
         <div class="post_title_box">
           <h4 class="post_title" style="margin-bottom:20px;"><%= @post.post_name %></h4>
         </div>
@@ -61,7 +70,7 @@
               <%= image_tag asset_path('mappin.png'),style:"width:20px; margin-left:20px;" %><%= @post.city.name %>
             </p>
             <div class="favorite" id="favorite_render", style="margin:5px 0 0 230px;">
-              <%= render 'favorite', post: @post %>
+              <%= render 'public/posts/favorite', post: @post %>
             </div>
           </div>
           <div class="post_text">
@@ -85,7 +94,7 @@
 
           <p style="margin-top:20px">コメント件数：<%= @post.comments.count %></p>
           <div class="comment_all">
-            <table>
+            <table class="d-flex justify-content-start">
               <% @post.comments.each do |comment| %>
                 <tr>
                   <td><p style="padding-right:20px; font-size:20px;"><%= comment.user.username %><p></td>
